@@ -1,6 +1,4 @@
-
 solution(646)
-// solution(73);
 function solution(storey) {
     var answer = 0;
     let arr = String(storey).split("");
