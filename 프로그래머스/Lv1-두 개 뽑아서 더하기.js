@@ -1,3 +1,21 @@
+function solution(numbers) {
+    var answer = [];
+    let hash = {};
+
+    let length = numbers.length;
+    for(let i=0; i<length; i++){
+        for(let j=length-1; j>i; j--){
+            let sum = numbers[i] + numbers[j];
+            if(!hash.hasOwnProperty(sum)){
+                answer.push(sum);
+                hash[sum] = -1;
+            }
+        }
+    }
+    answer.sort((a,b) => a-b);
+    return answer;
+}
+
 /*문제 설명
 정수 배열 numbers가 주어집니다. numbers에서 서로 다른 인덱스에 있는 두 개의 수를 뽑아 더해서 만들 수 있는 모든 수를 배열에 오름차순으로 
 담아 return 하도록 solution 함수를 완성해주세요.
@@ -28,21 +46,3 @@ numbers	result
 9 = 2 + 7 입니다.
 12 = 5 + 7 입니다.
 따라서 [2,5,7,9,12] 를 return 해야 합니다.*/
-
-function solution(numbers) {
-    var answer = [];
-    let hash = {};
-
-    let length = numbers.length;
-    for(let i=0; i<length; i++){
-        for(let j=length-1; j>i; j--){
-            let sum = numbers[i] + numbers[j];
-            if(!hash.hasOwnProperty(sum)){
-                answer.push(sum);
-                hash[sum] = -1;
-            }
-        }
-    }
-    answer.sort((a,b) => a-b);
-    return answer;
-}
